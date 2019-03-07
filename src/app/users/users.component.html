@@ -1,8 +1,18 @@
-<div class="card" style="width: 18rem;" *ngFor="let user of users">
+<div>
+  <input type='text' #inputName>
+  <input type='text' #inputUserName>
+  <input type='text' #inputEmail>
+  <button (click)='onAddUser(inputName.value, inputUserName.value, inputEmail.value)'>Add user</button>
+</div>
+
+<div class="card" style="width: 18rem; display: inline-block" *ngFor="let user of users">
   <div class="card-body">
     <h5 class="card-title">{{ user.name }}</h5>
     <p class="card-text">{{ user.username }}</p>
     <p class="card-text">{{ user.email }}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a routerLink='{{ user.id }}' class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>

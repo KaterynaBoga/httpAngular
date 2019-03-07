@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-interface User {
+export interface User {
   id: number;
   name: string;
   username: string;
@@ -19,11 +19,25 @@ export class UsersComponent implements OnInit {
 
   public users: User[] = [];
 
+  private userId = 10;
+
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.httpClient.get<User[]>(this.url).subscribe((response) => {
       this.users = response;
-    })
+    });
+  }
+
+
+  onAddUser(name: string, userName: string, email: string) {
+    this.httpClient.post<User>(this.url, {
+      name: name,
+      userName: userName,
+      email: email,
+      id: this.userId
+    }).subscribe(user => {
+      this.users.push(user);
+    });
   }
 }

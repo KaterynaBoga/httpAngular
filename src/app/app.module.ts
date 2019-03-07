@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { PhotosComponent } from './photos/photos.component';
 import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { UsersComponent } from './users/users.component';
     AppComponent,
     PostsComponent,
     PhotosComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
